@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NY-Weather-Forecast</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,300;0,400;0,500;0,700;0,800;0,900;1,400;1,500;1,700;1,800;1,900&family=Dancing+Script:wght@400;500;600;700&family=Montserrat:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&family=Pacifico&family=Raleway&family=Sofia+Sans+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;1,100;1,200;1,400&display=swap"
+      rel="stylesheet"/>
+      <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+  </head>
+  <body>
+    <header>
+
+        <div class="todays-date">
+      <p>
+        Today:
+        <span id="date"></span>
+      </p>
+
+    
+      </div>
+
+     <div class="search-bar">
+      <form id="search" autocomplete="off">
+        <input type="text" id="search-info" placeholder="Location" />
+        <button class="button">Search</button>
+      </form>
+       <button id="get-geo">UseGeo</button>
+      </div>
+
+
+
+      <div class="current-weather">
+        <div class="current-geo">
+          <h1 id = "city" >New York</h1>
+          <div class="overview">
+            <div class="temperature"><span id="temp">18</span>°C</div>
+            <span class="wind-and-humidity">
+              Wind Speed. <span id="wind">15</span> mph <br />
+              Humidity. <span id="humidity">90</span>%
+            </span>
+          </div>
+        </div>
+        <img src="img/current-weather.svg" alt = "sun-and-clouds" />
+      </div>
+    </header>
+
+    <main>
+      <div class="all-day-weather">
+
+        <h2>Hourly Weather Forecast</h2>
+
+        <ul class="hourly-forecast">
+            <li class="morning">
+                <img src="img/1.svg" class="sun-img">
+                <p class="future-conditions"> <span id="first-temp-block">3</span>  °C 
+                  <br> <span id="first-time-block">12:00</span></p>
+            </li>
+
+            <li class="afternoon">
+                <img src="img/2.svg" class="snow-img">
+                <p class="future-conditions"> <span id="second-temp-block">3° C</span> 
+                  <br> <span id="second-time-block">15:00</span></p>
+            </li>
+
+            <li class="evening">
+                <img src="img/3.svg"  class="moon-img" alt="">
+                <p class="future-conditions"><span id="third-temp-block">3° C </span>  
+                  <br> <span id="third-time-block">18:00</span> </p>
+            </li>
+        </ul>
+
+      <div class="5-days-forecast">
+        <h2>5 Days Forecast</h2>
+
+    <div id="next-days-box">
+        <ul class="week">
+
+         <div class="monday">
+          <li class="upcoming-day">
+            <h3 class="day-name">Monday, 2 Jan</h3>
+            <img src="img/Cloud.svg" class="precipitation-img" alt="" />
+            <p class="daily-temperature">Temperature.  7° <br> Feels Like. 9°</p>
+          </li>
+        </div>
+
+        <div class="tuesday">
+          <li class="upcoming-day">
+            <h3 class="day-name">Tuesday, 3 Jan </h3>
+            <img src="img/cloud sun and rain.svg" class="precipitation-img" alt="" />
+            <p class="daily-temperature">Temperature.  7° <br> Feels Like. 9°</p>
+          </li>
+        </div>
+
+
+       <div class="wednesday">
+          <li class="upcoming-day">
+            <h3 class="day-name">Wednesday, 4 Jan</h3>
+            <img src="img/Big rain drops.svg" class="precipitation-img"  alt="" />
+            <p class="daily-temperature">Temperature.  7° <br> Feels Like. 9°</p>
+          </li>
+        </div>
+
+        <div class="thursday">
+          <li class="upcoming-day">
+            <h3 class="day-name">Thursday, 5 Jan</h3>
+            <img src="img/Cloud.svg" class="precipitation-img" alt="" />
+            <p class="daily-temperature">Temperature.  7° <br> Feels Like. 9°</p>
+          </li>
+         </div>
+
+        <div class="friday">
+          <li class="upcoming-day">
+            <h3 class="day-name">Friday, 6 Jan </h3>
+             <img src="img/2.svg" class="precipitation-img" alt="" />
+            <p class="daily-temperature">Temperature.  7° <br> Feels Like. 9°</p>
+          </li>
+        </div>
+
+        </ul>
+      </div>
+      </div>
+    </main>
+
+    <footer></footer>
+    <script src="web.js"></script>
+  </body>
+</html>

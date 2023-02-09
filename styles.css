@@ -1,0 +1,211 @@
+body {
+    background: linear-gradient(180deg, #E75481 -22.84%, #929CDE 113.36%);
+    font-family: 'Alegreya Sans';
+    color: #FFFAFA;
+
+}
+#get-geo {
+margin: auto 0;
+cursor: pointer;
+background-color: #07A2D2;
+}
+
+.search-button {
+    margin: 0 50px;
+    cursor: pointer;
+}
+
+#search {
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 700;
+font-size: 14px;
+line-height: 17px;
+text-align: center;
+color: #FFFFFF;
+margin: 0 10px;
+}
+
+.search-bar {
+    margin-bottom: 26px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+input {
+    width: 260px;
+    height: 40px; 
+    background: #FBFBFB;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-color: #FFFAFA;
+    border: solid 0px;
+    border-radius: 20px;
+    text-align: left;
+   padding-left: 20px;
+}
+
+button {
+    background: #5E4FC1;
+    border-radius: 18px;
+    width: 80px;
+    height: 40px;
+    border: 0px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    color: #FFFAFA;
+}
+
+h1 {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 24px;
+    color: #332821;;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
+    margin: 0;  
+}
+
+h2 {
+    text-align: center;
+    margin: 26px 0;
+}
+.current-weather {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FBFBFB;;
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    max-width: 46.5%;
+    margin: 0 auto;
+}
+
+.todays-date {
+    display: flex;
+    justify-content: center;
+}
+
+.temperature {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 64px;
+    line-height: 77px;
+    color: #332821;
+}
+
+.wind-and-humidity {
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 14px;
+line-height: 17px;
+color: rgba(51, 40, 33, 0.5);
+}
+
+.current-geo {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.hourly-forecast {
+display: flex;
+    list-style-type: none;
+    padding: 0;
+   justify-content: center;
+   text-align: center;
+   margin: 0;
+}
+
+
+.future-conditions {
+    font-family: 'Alegreya Sans';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 43px;
+        text-align: center;
+        color: #332821;
+        margin: 0;
+}
+
+#second-time-block, 
+#third-time-block, 
+#first-time-block {
+font-family: 'Alegreya Sans';
+font-style: normal;
+font-weight: 500;
+font-size: 20px;
+line-height: 17px;
+text-align: center;
+color: rgba(51, 40, 33, 0.5);
+}
+
+.morning, 
+.afternoon, 
+.evening 
+{
+    background-color: #FBFBFB;
+    box-shadow: 4px 0px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 30px;
+    height: 240px;
+    width: 200px;
+    left: 15px;
+    top: 506px;
+}
+
+.afternoon {
+    margin: 0 40px 0 40px;
+}
+.snow-img, .sun-img, .moon-img {
+    height: 110px;
+    width: 110px;
+}
+
+.precipitation-img {
+    width: 80px;
+    height: 80px;
+}
+
+.upcoming-day {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.daily-temperature {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+}
+
+.week {
+    margin: 0;
+    padding: 0;
+}
+
+
+.day-name {
+    font-family: 'Alegreya Sans';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #332821;
+    align-items: flex-start;
+}
+
+.monday, .tuesday, .wednesday, .thursday, .friday
+ {
+    min-width: 500px;
+}
+
+#next-days-box {
+    display: flex;
+    justify-content: center;
+}
