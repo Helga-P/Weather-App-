@@ -1,5 +1,5 @@
-let dt = new Date();
-document.getElementById("date").innerHTML = dt.toLocaleDateString();
+let date = new Date();
+document.getElementById("date").innerHTML = date.toLocaleDateString();
 
 const apiKey = "b95f179627c8dd37f41e1be6e3250e19";
 let units = "metric";
@@ -51,6 +51,19 @@ function showTempByHours(response) {
   document.querySelector(
     "#third-time-block"
   ).innerHTML = `${validDateThree}:00`;
+  console.log(response);
+
+  let nextDaysNoonTemp = response.data.list.filter(function (timePoint) {
+    let dateTime = timePoint.dt_txt;
+    let time = dateTime.split(" ")[1];
+    if (time === "12:00:00") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  console.log(nextDaysNoonTemp);
 }
 
 function showTempByGeo(response) {
@@ -77,3 +90,32 @@ function allowCordinats() {
 
 let geoBtn = document.querySelector("#get-geo");
 geoBtn.addEventListener("click", allowCordinats);
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "April",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+let currentDay = days[date.getDay()];
+let currentMonth = months[date.getMonth()];
+let dayNumb = date.getDate();
