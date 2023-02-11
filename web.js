@@ -47,7 +47,7 @@ function showTempByHours(response) {
   let tempThirdBlock = Math.round(response.data.list[2].main.temp);
   document.querySelector("#third-temp-block").innerHTML = tempThirdBlock;
   let timeThirdBlock = response.data.list[2].dt;
-  let validDateThree = new Date(timeFirstBlock * 1000).getHours();
+  let validDateThree = new Date(timeThirdBlock * 1000).getHours();
   document.querySelector(
     "#third-time-block"
   ).innerHTML = `${validDateThree}:00`;
