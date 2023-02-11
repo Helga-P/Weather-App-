@@ -37,6 +37,20 @@ function showTempByHours(response) {
   let timeFirstBlock = response.data.list[0].dt;
   let validDateOne = new Date(timeFirstBlock * 1000).getHours();
   document.querySelector("#first-time-block").innerHTML = `${validDateOne}:00`;
+
+  let tempSecondBlock = Math.round(response.data.list[1].main.temp);
+  document.querySelector("#second-temp-block").innerHTML = tempSecondBlock;
+  let timeSecondBlock = response.data.list[1].dt;
+  let validDateTwo = new Date(timeSecondBlock * 1000).getHours();
+  document.querySelector("#second-time-block").innerHTML = `${validDateTwo}:00`;
+
+  let tempThirdBlock = Math.round(response.data.list[2].main.temp);
+  document.querySelector("#third-temp-block").innerHTML = tempThirdBlock;
+  let timeThirdBlock = response.data.list[2].dt;
+  let validDateThree = new Date(timeFirstBlock * 1000).getHours();
+  document.querySelector(
+    "#third-time-block"
+  ).innerHTML = `${validDateThree}:00`;
 }
 
 function showTempByGeo(response) {
