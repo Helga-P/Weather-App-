@@ -31,7 +31,7 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = wind;
 }
 
-let days = [
+let weekday = [
   "Sunday",
   "Monday",
   "Tuesday",
@@ -56,7 +56,7 @@ let months = [
   "Dec",
 ];
 
-let currentDay = days[date.getDay()];
+let currentDay = weekday[date.getDay()];
 let currentMonth = months[date.getMonth()];
 let dayNumb = date.getDate();
 
@@ -111,14 +111,22 @@ function showTempByHours(response) {
   document.querySelector("#fourth-day-feels").innerHTML = feelsFourthDay;
 
   let tempFifthDay = Math.round(nextDaysNoonTemp[3].main.temp);
-  document.querySelector("fifth-day-temp").innerHTML = tempFifthDay;
+  document.querySelector("#fifth-day-temp").innerHTML = tempFifthDay;
   let feelsFifthDay = Math.round(nextDaysNoonTemp[3].main.feels_like);
   document.querySelector("#fifth-day-feels").innerHTML = feelsFifthDay;
 
   let tempSixthDay = Math.round(nextDaysNoonTemp[4].main.temp);
-  document.querySelector("sixth-day-temp").innerHTML = tempSixthDay;
+  document.querySelector("#sixth-day-temp").innerHTML = tempSixthDay;
   let feelsSixthDay = Math.round(nextDaysNoonTemp[4].main.feels_like);
   document.querySelector("#sixth-day-feels").innerHTML = feelsSixthDay;
+
+  let NextDays = nextDaysNoonTemp[0].dt;
+  let nextDayName = weekday[NextDays.getUTCDay()];
+  let NextDayMonth = months[NextDays.getUTCMonth()];
+  let NextDayNumb = NextDays.getUTCDate();
+
+  let firstDay = `${nextDayName}, ${NextDayMonth} ${NextDayNumb}`;
+  document.querySelector("#next-day") = firstDay;
 }
 
 function showTempByGeo(response) {
