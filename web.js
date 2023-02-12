@@ -31,6 +31,37 @@ function showTemperature(response) {
   document.querySelector("#wind").innerHTML = wind;
 }
 
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+
+let months = [
+  "Jan",
+  "Feb",
+  "Mar",
+  "April",
+  "May",
+  "Jun",
+  "Jul",
+  "Aug",
+  "Sept",
+  "Oct",
+  "Nov",
+  "Dec",
+];
+
+let currentDay = days[date.getDay()];
+let currentMonth = months[date.getMonth()];
+let dayNumb = date.getDate();
+
+let nextDay = `${currentDay + 1} `;
+
 function showTempByHours(response) {
   let TempFirstBlock = Math.round(response.data.list[0].main.temp);
   document.querySelector("#first-temp-block").innerHTML = TempFirstBlock;
@@ -62,8 +93,32 @@ function showTempByHours(response) {
       return false;
     }
   });
-
   console.log(nextDaysNoonTemp);
+
+  let tempNextDay = Math.round(nextDaysNoonTemp[0].main.temp);
+  document.querySelector("#next-day-temp").innerHTML = tempNextDay;
+  let feelsNextDay = Math.round(nextDaysNoonTemp[0].main.feels_like);
+  document.querySelector("#next-day-feels").innerHTML = feelsNextDay;
+
+  let tempThirdDay = Math.round(nextDaysNoonTemp[1].main.temp);
+  document.querySelector("#third-day-temp").innerHTML = tempThirdDay;
+  let feelsThirdDay = Math.round(nextDaysNoonTemp[1].main.feels_like);
+  document.querySelector("#third-day-feels").innerHTML = feelsThirdDay;
+
+  let tempFourthDay = Math.round(nextDaysNoonTemp[2].main.temp);
+  document.querySelector("#fourth-day-temp").innerHTML = tempFourthDay;
+  let feelsFourthDay = Math.round(nextDaysNoonTemp[2].main.feels_like);
+  document.querySelector("#fourth-day-feels").innerHTML = feelsFourthDay;
+
+  let tempFifthDay = Math.round(nextDaysNoonTemp[3].main.temp);
+  document.querySelector("fifth-day-temp").innerHTML = tempFifthDay;
+  let feelsFifthDay = Math.round(nextDaysNoonTemp[3].main.feels_like);
+  document.querySelector("#fifth-day-feels").innerHTML = feelsFifthDay;
+
+  let tempSixthDay = Math.round(nextDaysNoonTemp[4].main.temp);
+  document.querySelector("sixth-day-temp").innerHTML = tempSixthDay;
+  let feelsSixthDay = Math.round(nextDaysNoonTemp[4].main.feels_like);
+  document.querySelector("#sixth-day-feels").innerHTML = feelsSixthDay;
 }
 
 function showTempByGeo(response) {
@@ -90,32 +145,3 @@ function allowCordinats() {
 
 let geoBtn = document.querySelector("#get-geo");
 geoBtn.addEventListener("click", allowCordinats);
-
-let days = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-
-let months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "April",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sept",
-  "Oct",
-  "Nov",
-  "Dec",
-];
-
-let currentDay = days[date.getDay()];
-let currentMonth = months[date.getMonth()];
-let dayNumb = date.getDate();
