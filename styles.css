@@ -209,3 +209,8 @@ color: rgba(51, 40, 33, 0.5);
     display: flex;
     justify-content: center;
 }
+
+.link-on-git {
+    text-align: center;
+    margin: 20px;
+}
