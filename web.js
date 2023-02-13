@@ -120,13 +120,15 @@ function showTempByHours(response) {
   let feelsSixthDay = Math.round(nextDaysNoonTemp[4].main.feels_like);
   document.querySelector("#sixth-day-feels").innerHTML = feelsSixthDay;
 
-  let NextDays = nextDaysNoonTemp[0].dt;
-  let nextDayName = weekday[NextDays.getUTCDay()];
-  let NextDayMonth = months[NextDays.getUTCMonth()];
-  let NextDayNumb = NextDays.getUTCDate();
+  let unixNextDay = nextDaysNoonTemp[0].dt;
+  let validNextDayDate = new Date(unixNextDay * 1000);
 
-  let firstDay = `${nextDayName}, ${NextDayMonth} ${NextDayNumb}`;
-  document.querySelector("#next-day") = firstDay;
+  let nextDayName = weekday[validNextDayDate.getDay()];
+  let nextDayMonth = months[validNextDayDate.getMonth()];
+  let nextDayNumb = validNextDayDate.getDate();
+
+  let fullNextDayDate = `${nextDayName}, ${nextDayMonth} ${nextDayNumb}`;
+  document.querySelector("#next-day-date").innerHTML = fullNextDayDate;
 }
 
 function showTempByGeo(response) {
