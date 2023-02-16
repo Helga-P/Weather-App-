@@ -122,13 +122,43 @@ function showTempByHours(response) {
 
   let unixNextDay = nextDaysNoonTemp[0].dt;
   let validNextDayDate = new Date(unixNextDay * 1000);
-
   let nextDayName = weekday[validNextDayDate.getDay()];
   let nextDayMonth = months[validNextDayDate.getMonth()];
   let nextDayNumb = validNextDayDate.getDate();
-
   let fullNextDayDate = `${nextDayName}, ${nextDayMonth} ${nextDayNumb}`;
   document.querySelector("#next-day-date").innerHTML = fullNextDayDate;
+
+  let unixThirdDay = nextDaysNoonTemp[1].dt;
+  let validThirdDayDate = new Date(unixThirdDay * 1000);
+  let thirdDayName = weekday[validThirdDayDate.getDay()];
+  let thirdDayMonth = months[validThirdDayDate.getMonth()];
+  let thirdDayNumb = validThirdDayDate.getDate();
+  let fullThirdDayDate = `${thirdDayName}, ${thirdDayMonth} ${thirdDayNumb}`;
+  document.querySelector("#third-day").innerHTML = fullThirdDayDate;
+
+  let unixFourthDay = nextDaysNoonTemp[2].dt;
+  let validFourthDayDate = new Date(unixFourthDay * 1000);
+  let fourthDayName = weekday[validFourthDayDate.getDay()];
+  let fourthDayMonth = months[validFourthDayDate.getMonth()];
+  let fourthDayNumb = validFourthDayDate.getDate();
+  let fullFourthDayDate = `${fourthDayName}, ${fourthDayMonth} ${fourthDayNumb}`;
+  document.querySelector("#fourth-day").innerHTML = fullFourthDayDate;
+
+  let unixFifthDay = nextDaysNoonTemp[3].dt;
+  let validFifthDayDate = new Date(unixFifthDay * 1000);
+  let fifthDayName = weekday[validFifthDayDate.getDay()];
+  let fifthDayMonth = months[validFifthDayDate.getMonth()];
+  let fifthDayNumb = validFifthDayDate.getDate();
+  let fullFifthDayDate = `${fifthDayName}, ${fifthDayMonth} ${fifthDayNumb}`;
+  document.querySelector("#fifth-day").innerHTML = fullFifthDayDate;
+
+  let unixSixthDay = nextDaysNoonTemp[4].dt;
+  let validSixthDayDate = new Date(unixSixthDay * 1000);
+  let sixthDayName = weekday[validSixthDayDate.getDay()];
+  let sixthDayMonth = months[validSixthDayDate.getMonth()];
+  let sixthDayNumb = validSixthDayDate.getDate();
+  let fullSixthDayDate = `${sixthDayName}, ${sixthDayMonth} ${sixthDayNumb}`;
+  document.querySelector("#sixth-day").innerHTML = fullSixthDayDate;
 }
 
 function showTempByGeo(response) {
