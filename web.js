@@ -4,6 +4,7 @@ document.getElementById("date").innerHTML = date.toLocaleDateString();
 const apiKey = "b95f179627c8dd37f41e1be6e3250e19";
 let units = "metric";
 let cityName;
+let tempValue;
 
 function search(event) {
   event.preventDefault();
@@ -21,7 +22,7 @@ let form = document.querySelector("#search");
 form.addEventListener("submit", search);
 
 function showTemperature(response) {
-  let tempValue = Math.round(response.data.main.temp);
+  tempValue = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = tempValue;
 
   let humidity = Math.round(response.data.main.humidity);
@@ -162,7 +163,7 @@ function showTempByHours(response) {
 }
 
 function showTempByGeo(response) {
-  let tempValue = Math.round(response.data.main.temp);
+  tempValue = Math.round(response.data.main.temp);
   document.querySelector("#temp").innerHTML = tempValue;
   let humidity = Math.round(response.data.main.humidity);
   document.querySelector("#humidity").innerHTML = humidity;
@@ -185,3 +186,22 @@ function allowCordinats() {
 
 let geoBtn = document.querySelector("#get-geo");
 geoBtn.addEventListener("click", allowCordinats);
+
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let tempToFahrenheit = Math.round((tempValue * 9) / 5 + 32);
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = tempToFahrenheit;
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  let tempElement = document.querySelector("#temp");
+  tempElement.innerHTML = tempValue;
+}
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", showFahrenheitTemp);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", showCelsiusTemp);
