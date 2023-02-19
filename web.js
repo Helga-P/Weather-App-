@@ -4,7 +4,7 @@ document.getElementById("date").innerHTML = date.toLocaleDateString();
 const apiKey = "b95f179627c8dd37f41e1be6e3250e19";
 let units = "metric";
 let cityName;
-let tempValue;
+let tempValue = null;
 
 function search(event) {
   event.preventDefault();
@@ -192,12 +192,16 @@ function showFahrenheitTemp(event) {
   let tempToFahrenheit = Math.round((tempValue * 9) / 5 + 32);
   let tempElement = document.querySelector("#temp");
   tempElement.innerHTML = tempToFahrenheit;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function showCelsiusTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#temp");
   tempElement.innerHTML = tempValue;
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");

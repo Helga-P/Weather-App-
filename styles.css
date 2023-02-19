@@ -224,11 +224,12 @@ color: rgba(51, 40, 33, 0.5);
 
 }
 
-a, a:link {
+a, a:link .active:hover {
     text-decoration: none;
-    color: #5E4FC0;
+    color: #332721;
+    cursor: default;
 }
-a:hover {
-    text-decoration: underline;
+.active {
     color: #07A2D1;
+    cursor: default;
 }
