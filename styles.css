@@ -231,5 +231,5 @@ a, a:link .active:hover {
 }
 .active {
     color: #07A2D1;
-    cursor: default;
+    cursor: pointer;
 }
