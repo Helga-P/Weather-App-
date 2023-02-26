@@ -5,6 +5,7 @@ const apiKey = "b95f179627c8dd37f41e1be6e3250e19";
 let units = "metric";
 let cityName;
 let tempValue = null;
+let fahrenheitSymbol = "°F";
 
 function search(event) {
   event.preventDefault();
@@ -196,12 +197,16 @@ function showFahrenheitTemp(event) {
   // tempElement.innerHTML = tempToFahrenheit;
   fahrenheitLink.classList.remove("active");
   celsiusLink.classList.add("active");
+  let unitsSymbols = document.querySelectorAll(".units-symbol");
   if (units === "metric") {
     units = "imperial";
     allTemperatures.forEach(function (tempHtmlElement) {
       let temp = parseInt(tempHtmlElement.innerHTML);
       let tempFahrenheit = (temp * 9) / 5 + 32;
       tempHtmlElement.innerHTML = tempFahrenheit;
+    });
+    unitsSymbols.forEach(function (element) {
+      element.innerHTML = fahrenheitSymbol;
     });
   }
 }
