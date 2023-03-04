@@ -6,12 +6,14 @@ let units = "metric";
 let cityName;
 let tempValue = null;
 let fahrenheitSymbol = "°F";
+let celsiusSymbol = "°C";
 
 function search(event) {
   event.preventDefault();
 
   cityName = document.querySelector("#search-info").value;
   document.querySelector("h1").innerHTML = cityName;
+
   let apiUrl =
     `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=` +
     units;
@@ -33,6 +35,11 @@ function showTemperature(response) {
 
   let wind = response.data.wind.speed.toFixed(1);
   document.querySelector("#wind").innerHTML = wind;
+
+  let weatherIcon = document.querySelector(".main-weather-icon");
+  let iconId = response.data.weather[0].icon;
+  weatherIcon.src = `img/${iconId}.svg`;
+  console.log(response);
 }
 
 let weekday = [
@@ -67,17 +74,24 @@ let dayNumb = date.getDate();
 let nextDay = `${currentDay + 1} `;
 
 function showTempByHours(response) {
-  let TempFirstBlock = Math.round(response.data.list[0].main.temp);
-  document.querySelector("#first-temp-block").innerHTML = TempFirstBlock;
+  let tempFirstBlock = Math.round(response.data.list[0].main.temp);
+  document.querySelector("#first-temp-block").innerHTML = tempFirstBlock;
   let timeFirstBlock = response.data.list[0].dt;
   let validDateOne = new Date(timeFirstBlock * 1000).getHours();
   document.querySelector("#first-time-block").innerHTML = `${validDateOne}:00`;
+  let tempFirstIcon = document.querySelector(".temp-first-icon");
+  let tempFirstIconCode = response.data.list[0].weather[0].icon;
+  tempFirstIcon.src = `img/${tempFirstIconCode}.svg`;
+  console.log(response);
 
   let tempSecondBlock = Math.round(response.data.list[1].main.temp);
   document.querySelector("#second-temp-block").innerHTML = tempSecondBlock;
   let timeSecondBlock = response.data.list[1].dt;
   let validDateTwo = new Date(timeSecondBlock * 1000).getHours();
   document.querySelector("#second-time-block").innerHTML = `${validDateTwo}:00`;
+  let tempSecondIcon = document.querySelector(".second-temp-icon");
+  let tempSecondIconCode = response.data.list[1].weather[0].icon;
+  tempSecondIcon.src = `img/${tempSecondIconCode}.svg`;
 
   let tempThirdBlock = Math.round(response.data.list[2].main.temp);
   document.querySelector("#third-temp-block").innerHTML = tempThirdBlock;
@@ -86,7 +100,9 @@ function showTempByHours(response) {
   document.querySelector(
     "#third-time-block"
   ).innerHTML = `${validDateThree}:00`;
-  console.log(response);
+  let tempThirdIcon = document.querySelector(".third-temp-icon");
+  let tempThirdIconCode = response.data.list[2].weather[0].icon;
+  tempThirdIcon.src = `img/${tempThirdIconCode}.svg`;
 
   let nextDaysNoonTemp = response.data.list.filter(function (timePoint) {
     let dateTime = timePoint.dt_txt;
@@ -97,7 +113,6 @@ function showTempByHours(response) {
       return false;
     }
   });
-  console.log(nextDaysNoonTemp);
 
   let tempNextDay = Math.round(nextDaysNoonTemp[0].main.temp);
   document.querySelector("#next-day-temp").innerHTML = tempNextDay;
@@ -202,7 +217,7 @@ function showFahrenheitTemp(event) {
     units = "imperial";
     allTemperatures.forEach(function (tempHtmlElement) {
       let temp = parseInt(tempHtmlElement.innerHTML);
-      let tempFahrenheit = (temp * 9) / 5 + 32;
+      let tempFahrenheit = Math.round((temp * 9) / 5 + 32);
       tempHtmlElement.innerHTML = tempFahrenheit;
     });
     unitsSymbols.forEach(function (element) {
@@ -214,9 +229,22 @@ function showFahrenheitTemp(event) {
 function showCelsiusTemp(event) {
   event.preventDefault();
   let tempElement = document.querySelector("#temp");
-  tempElement.innerHTML = tempValue;
+  // console.log("tempValue: ", tempValue);
+  // tempElement.innerHTML = tempValue;
   celsiusLink.classList.remove("active");
   fahrenheitLink.classList.add("active");
+  let unitsSymbols = document.querySelectorAll(".units-symbol");
+  if (units === "imperial") {
+    units = "metric";
+    allTemperatures.forEach(function (tempHtmlElement) {
+      let temp = parseInt(tempHtmlElement.innerHTML);
+      let tempCelsius = Math.round((temp - 32) / (9 / 5));
+      tempHtmlElement.innerHTML = tempCelsius;
+    });
+    unitsSymbols.forEach(function (element) {
+      element.innerHTML = celsiusSymbol;
+    });
+  }
 }
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");

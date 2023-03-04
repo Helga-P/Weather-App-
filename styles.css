@@ -15,6 +15,11 @@ background-color: #07A2D2;
     cursor: pointer;
 }
 
+.main-weather-icon {
+    width: 300px;
+    height: 300px;
+}
+
 #search {
 font-family: 'Alegreya Sans';
 font-style: normal;
