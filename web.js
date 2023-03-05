@@ -10,7 +10,6 @@ let celsiusSymbol = "°C";
 
 function search(event) {
   event.preventDefault();
-
   cityName = document.querySelector("#search-info").value;
   document.querySelector("h1").innerHTML = cityName;
 
@@ -112,6 +111,11 @@ function showTempByHours(response) {
     } else {
       return false;
     }
+  });
+
+  let weatherIcons = document.querySelectorAll(".precipitation-img");
+  weatherIcons.forEach(function (iconHtml, index) {
+    iconHtml.src = `img/${nextDaysNoonTemp[index].weather[0].icon}.svg`;
   });
 
   let tempNextDay = Math.round(nextDaysNoonTemp[0].main.temp);
@@ -254,3 +258,5 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", showCelsiusTemp);
 
 let allTemperatures = document.querySelectorAll(".temp-value");
+document.querySelector("#search-info").value = "New York";
+document.querySelector(".button").click();
