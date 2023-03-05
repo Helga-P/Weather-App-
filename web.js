@@ -184,30 +184,30 @@ function showTempByHours(response) {
   document.querySelector("#sixth-day").innerHTML = fullSixthDayDate;
 }
 
-function showTempByGeo(response) {
-  tempValue = Math.round(response.data.main.temp);
-  document.querySelector("#temp").innerHTML = tempValue;
-  let humidity = Math.round(response.data.main.humidity);
-  document.querySelector("#humidity").innerHTML = humidity;
-  let wind = response.data.wind.speed.toFixed(1);
-  document.querySelector("#wind").innerHTML = wind;
-}
+// function showTempByGeo(response) {
+//   tempValue = Math.round(response.data.main.temp);
+//   document.querySelector("#temp").innerHTML = tempValue;
+//   let humidity = Math.round(response.data.main.humidity);
+//   document.querySelector("#humidity").innerHTML = humidity;
+//   let wind = response.data.wind.speed.toFixed(1);
+//   document.querySelector("#wind").innerHTML = wind;
+// }
 
-function getCoordinats(position) {
-  let lat = position.coords.latitude;
-  let lon = position.coords.longitude;
-  let apiCoordinatsUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-  axios.get(apiCoordinatsUrl).then(showTempByGeo);
-  document.querySelector("#city").innerHTML =
-    "Location: " + lon.toFixed(2) + "  " + lat.toFixed(2);
-}
+// function getCoordinats(position) {
+//   let lat = position.coords.latitude;
+//   let lon = position.coords.longitude;
+//   let apiCoordinatsUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+//   axios.get(apiCoordinatsUrl).then(showTempByGeo);
+//   document.querySelector("#city").innerHTML =
+//     "Location: " + lon.toFixed(2) + "  " + lat.toFixed(2);
+// }
 
-function allowCordinats() {
-  navigator.geolocation.getCurrentPosition(getCoordinats);
-}
+// function allowCordinats() {
+//   navigator.geolocation.getCurrentPosition(getCoordinats);
+// }
 
-let geoBtn = document.querySelector("#get-geo");
-geoBtn.addEventListener("click", allowCordinats);
+// let geoBtn = document.querySelector("#get-geo");
+// geoBtn.addEventListener("click", allowCordinats);
 
 function showFahrenheitTemp(event) {
   event.preventDefault();
